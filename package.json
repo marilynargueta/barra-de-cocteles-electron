@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Cristian Josué Gómez Majano",
+  "author": "Marilyn  Gabriela Argueta Sanchez",
   "license": "ISC",
   "devDependencies": {
     "electron": "^44.7.0"

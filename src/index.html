@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSP: solo scripts y estilos propios; fotos desde thecocktaildb.com; sin conexiones de red desde la interfaz -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://www.thecocktaildb.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <title>Barra de Cócteles</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+
+    <aside class="panel">
+        <div class="marca">
+            <img src="../assets/icon.png" alt="" width="40" height="40">
+            <div>
+                <h1>Barra de Cócteles</h1>
+                <p id="version" class="version"></p>
+            </div>
+        </div>
+
+        <form id="filtros" autocomplete="off">
+            <label for="busqueda">Buscar</label>
+            <input id="busqueda" type="search" placeholder="Bebida o ingrediente: ron, limón…">
+
+            <label for="categoria">Categoría</label>
+            <select id="categoria"><option value="">Todas</option></select>
+
+            <label for="alcohol">Tipo</label>
+            <select id="alcohol"><option value="">Todos</option></select>
+
+            <label for="vaso">Vaso recomendado</label>
+            <select id="vaso"><option value="">Todos</option></select>
+
+            <label for="ingrediente">Ingrediente</label>
+            <select id="ingrediente"><option value="">Cualquiera</option></select>
+
+            <label for="orden">Ordenar por</label>
+            <select id="orden">
+                <option value="nombre">Nombre (A–Z)</option>
+                <option value="nombre-desc">Nombre (Z–A)</option>
+                <option value="ingredientes">Más ingredientes</option>
+            </select>
+
+            <button id="limpiar" type="button">Limpiar filtros</button>
+        </form>
+
+        <p id="resumen" class="resumen" role="status" aria-live="polite"></p>
+    </aside>
+
+    <main class="contenido">
+        <section id="cargando" class="aviso">
+            <div class="spinner"></div>
+            <strong>Cargando bebidas…</strong>
+        </section>
+
+        <section id="error" class="aviso error d-none" role="alert">
+            <p id="mensaje-error"></p>
+            <button id="reintentar" type="button">Reintentar</button>
+        </section>
+
+        <p id="vacio" class="aviso d-none">Ninguna bebida coincide con esos filtros. Prueba con otra búsqueda o limpia los filtros.</p>
+
+        <div id="lista" class="lista"></div>
+
+        <nav id="paginacion" class="paginacion d-none" aria-label="Paginación">
+            <button id="anterior" type="button">&larr; Anterior</button>
+            <span id="pagina"></span>
+            <button id="siguiente" type="button">Siguiente &rarr;</button>
+        </nav>
+    </main>
+
+    <template id="plantilla">
+        <article class="bebida">
+            <img class="foto" alt="" loading="lazy">
+            <div class="datos">
+                <h2 class="nombre"></h2>
+                <p class="etiquetas"></p>
+                <dl>
+                    <dt>Categoría</dt><dd class="categoria"></dd>
+                    <dt>Tipo</dt><dd class="alcohol"></dd>
+                    <dt>Vaso</dt><dd class="vaso"></dd>
+                    <dt>Ingredientes</dt><dd class="cantidad"></dd>
+                    <dt>Incluye</dt><dd class="incluye"></dd>
+                </dl>
+            </div>
+        </article>
+    </template>
+
+</body>
+</html>

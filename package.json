@@ -1,0 +1,15 @@
+{
+  "name": "barra-cocteles",
+  "productName": "Barra de Cócteles",
+  "version": "1.0.0",
+  "description": "Aplicación de escritorio (Electron) para explorar cócteles y bebidas con la API pública TheCocktailDB",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Cristian Josué Gómez Majano",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^44.7.0"
+  }
+}
